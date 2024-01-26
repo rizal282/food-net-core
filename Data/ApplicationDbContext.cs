@@ -12,4 +12,9 @@ public class ApplicationDbContext : DbContext
 
     public DbSet<Food> Foods { get; set; }
     public DbSet<Customer> Customers { get; set; }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        
+    }
 }

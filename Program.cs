@@ -16,9 +16,11 @@ builder.Services.AddSwaggerGen();
 
 // DI for Repository
 builder.Services.AddScoped<IFoodRepo, FoodRepoImpl>();
+builder.Services.AddScoped<ICustomerRepo, CustomerRepoImpl>();
 
 // DI for Serivice
 builder.Services.AddScoped<IFoodService, FoodServiceImpl>();
+builder.Services.AddScoped<ICustomerService, CustomerServiceImpl>();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options => {
     options.UseMySQL(builder.Configuration.GetConnectionString("MysqlDefaultConnection"));

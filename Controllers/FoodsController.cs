@@ -1,6 +1,5 @@
 using foodapi.Data.Request;
 using foodapi.Data.Response;
-using foodapi.Models;
 using foodapi.Services;
 using Microsoft.AspNetCore.Mvc;
 

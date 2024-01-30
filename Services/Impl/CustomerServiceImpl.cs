@@ -1,3 +1,4 @@
+using foodapi.Core.GenericRepository;
 using foodapi.Data.Request;
 using foodapi.Data.Response;
 using foodapi.Models;
@@ -8,16 +9,16 @@ namespace foodapi.Services.Impl;
 public class CustomerServiceImpl : ICustomerService
 {
 
-    private readonly ICustomerRepo _customerRepo;
+    private readonly ICustomerRepository _customerRepository;
 
-    public CustomerServiceImpl(ICustomerRepo customerRepo)
+    public CustomerServiceImpl(ICustomerRepository customerRepository)
     {
-        _customerRepo = customerRepo;
+        _customerRepository = customerRepository;
     }
 
     public async Task<List<CustomerResponse>> GetAllCustomers()
     {
-        var listCustomers = await _customerRepo.getAllCustomers();
+        var listCustomers = await _customerRepository.All();
 
         return listCustomers.Count == 0 ? [] : listCustomers;
     }

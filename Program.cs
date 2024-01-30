@@ -2,7 +2,6 @@ using foodapi.Data;
 using foodapi.Repositories;
 using foodapi.Repositories.Impl;
 using foodapi.Services;
-using foodapi.Services.Impl;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);

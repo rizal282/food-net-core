@@ -1,29 +1,32 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using foodapi.Constans;
 
 namespace foodapi.Models;
 
-[Table("customers")]
+[Table(ConstansTable.CUSTOMERS_TABLE_NAME)]
 public class Customer
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    [Column("id")]
+    [Column(ConstansTable.ID)]
     public int Id { get; set; }
 
-    [Column("name")]
+    [Column(ConstansTable.CUSTOMER_NAME)]
     [MaxLength(50)]
-    public string Name { get; set; }
+    public string? Name { get; set; }
 
-    [Column("phone_number")]
+    [Column(ConstansTable.CUSTOMER_PHONE_NUMBER)]
     [MaxLength(20)]
-    public string PhoneNumber { get; set; }
+    public string? PhoneNumber { get; set; }
 
-    [Column("email")]
+    [Column(ConstansTable.CUSTOMER_EMAIL)]
     [MaxLength(100)]
-    public string Email { get; set; }
+    public string? Email { get; set; }
 
-    [Column("address")]
+    [Column(ConstansTable.CUSTOMER_ADDRESS)]
     [MaxLength(300)]
-    public string Address { get; set; }
+    public string? Address { get; set; }
+
+    public List<Order>? Orders { get; set; }
 }

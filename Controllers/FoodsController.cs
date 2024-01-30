@@ -1,3 +1,4 @@
+using foodapi.Constans;
 using foodapi.Data.Request;
 using foodapi.Data.Response;
 using foodapi.Services;
@@ -5,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace foodapi.Controllers;
 
-[Route("api/[controller]")]
+[Route(ConstansEndpoint.BASE_ROUTE_API)]
 [ApiController]
 public class FoodsController : ControllerBase
 {
@@ -46,6 +47,8 @@ public class FoodsController : ControllerBase
     }
 
     [HttpPost]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status201Created)]
     public async Task<ActionResult> CreateFood([FromBody] FoodRequest foodRequest)
     {
         if(!ModelState.IsValid){
